@@ -2,6 +2,6 @@
 
 using MoodAnalizer;
 
-MoodAnalizerProblem obj = new MoodAnalizerProblem("sad");
+MoodAnalizerProblem obj = new MoodAnalizerProblem("Sad");
 Console.WriteLine(obj.Mood());
 Console.ReadLine();
