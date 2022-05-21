@@ -1,35 +1,21 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MoodAnalizer
 {
-    [Serializable]
-    internal class MoodAnalyzerException : Exception
+    public class MoodAnalyzerException : Exception
     {
-        private object eMPTY_MOOD;
-        private string v;
-
-        public MoodAnalyzerException()
+        public enum ExceptionType
         {
+            NULL_MOOD, EMPTY_MOOD, NO_SUCH_CLASS, NO_SUCH_METHOD
         }
-
-        public MoodAnalyzerException(string? message) : base(message)
+        public ExceptionType exceptionType;
+        public MoodAnalyzerException(ExceptionType type, string message) : base(message)
         {
+            this.exceptionType = type;
         }
-
-        public MoodAnalyzerException(object eMPTY_MOOD, string v)
-        {
-            this.eMPTY_MOOD = eMPTY_MOOD;
-            this.v = v;
-        }
-
-        public MoodAnalyzerException(string? message, Exception? innerException) : base(message, innerException)
-        {
-        }
-
-        protected MoodAnalyzerException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
-
-        public static object ExceptionType { get; internal set; }
     }
 }
